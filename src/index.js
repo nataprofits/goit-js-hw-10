@@ -26,13 +26,10 @@ const searchCountry = (searchQuery) => {
         return response.json();
       })
       .then(countries => {
-        // Если найдено 10 или меньше стран, обрабатываем полученные данные
-        if (countries.length <= 10) {
+        // Если найдено 2 или более стран, обрабатываем полученные данные
+        if (countries.length >= 2 && countries.length <= 10) {
           countries.forEach(country => {
-            const { name, capital, population, flags, languages } = country;
-
-            // Преобразуем объект языков в строку вида "ключ: значение"
-            const languageStr = Object.entries(languages).map(([key, value]) => `${value}`).join(', ');
+            const { name, flags } = country;
 
             // Создаем элементы списка с данными о стране
             const countryItem = document.createElement('li');
@@ -42,9 +39,6 @@ const searchCountry = (searchQuery) => {
               </div>
               <div>
                 <h2>${name.official}</h2>
-                <p>Capital: ${capital}</p>
-                <p>Population: ${population}</p>
-                <p>Languages: ${languageStr}</p>
               </div>
             `;
 
@@ -53,7 +47,7 @@ const searchCountry = (searchQuery) => {
           });
           // Вызываем resolve с результатами поиска
           resolve(countries);
-        } else {
+        } else if (countries.length > 10) {
           // Если найдено более 10 стран, выводим уведомление и вызываем reject
           Notiflix.Notify.warning('Too many matches found. Please enter a more specific name.');
           reject('Too many matches found');
