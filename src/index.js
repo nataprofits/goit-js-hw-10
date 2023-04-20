@@ -77,4 +77,3 @@ const handleSearchInput = debounce((event) => {
 
 const searchBox = document.getElementById('search-box');
 searchBox.addEventListener('input', handleSearchInput);
-console.log(searchBox);
