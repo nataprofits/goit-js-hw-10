@@ -18,10 +18,15 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
-
+.container{
+  margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
 .country-list {
   list-style: none;
   padding: 0;
+ 
 }
 
 .country-list-item {
@@ -32,12 +37,14 @@ body {
 
 ul {
   margin: 0px;
-  padding: 0px;
+  padding: 0px; 
+  background-color: azure;
 }
 .country {
   display: flex;
   flex-direction: column;
   align-items: start;
+  background-color: bisque;
 }
 
 .country-name {
@@ -52,6 +59,7 @@ ul {
   margin-right: 20px;
   border: 1px solid #000;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
 }
 
 .country-name h1 {
@@ -73,4 +81,5 @@ ul {
 .country-info {
   display: block;
   margin-right: 5px;
+ 
 }
