@@ -18,7 +18,7 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
-/* Стили для списка стран */
+
 .country-list {
   list-style: none;
   padding: 0;
@@ -30,26 +30,14 @@ body {
   margin-bottom: 10px;
 }
 
-.country-list-img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  /* Тень на картинку */
+ul {
+  margin: 0px;
+  padding: 0px;
 }
-
-.country-list-text {
-  font-size: 16px;
-  font-weight: bold;
-  flex-grow: 1;
-  /* Добавлено свойство flex-grow для растяжения текста на всю доступную ширину */
-}
-
-/* Стили для информации о стране */
 .country {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 .country-name {
@@ -58,12 +46,12 @@ body {
   margin-bottom: 20px;
 }
 
-.country-name img {
+ img {
   width: 100px;
   height: 100%;
   margin-right: 20px;
   border: 1px solid #000;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .country-name h1 {
@@ -71,17 +59,18 @@ body {
   font-weight: bold;
 }
 
-.country-details {
-  list-style: none;
-  padding: 0;
-}
-
-.country-details li {
+.country-info-item {
   display: flex;
-  margin-bottom: 5px;
+  align-items: center;
 }
-
-.country-details li span {
-  font-weight: bold;
+.country-info-header {
+  font-size: 14px;
+    font-weight: bold;
+}
+.country-info-value {
+  margin-left: 5px;
+}
+.country-info {
+  display: block;
   margin-right: 5px;
 }
