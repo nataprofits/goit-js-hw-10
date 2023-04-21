@@ -4,7 +4,6 @@ import Notiflix from 'notiflix';
 var debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 300;
 
-
 // Инициализация библиотеки
 Notiflix.Notify.init();
 
@@ -53,6 +52,30 @@ const searchCountry = (searchQuery) => {
           Notiflix.Notify.warning('Too many matches found. Please enter a more specific name.');
           reject('Too many matches found');
         }
+        else if (countries.length === 1) {
+          countries.forEach(country => {
+            const { name, flags, capital, population, languages } = country;
+
+            // Создаем элементы списка с данными о стране
+            const countryItem = document.createElement('li');
+            countryItem.innerHTML = `
+              <div>
+                <img src="${flags.svg}" alt="${name.common}" />
+              </div>
+              <div>
+                <h2>${name.official}</h2>
+                <p>Capital: ${capital}</p>
+                <p>Population: ${population}</p>
+                <p>Languages: ${languages.join(',')}</p>
+              </div>
+            `;
+
+            // Добавляем элемент списка в список стран
+            countryList.appendChild(countryItem);
+          });
+          // Вызываем resolve с результатами поиска
+          resolve(countries);
+        }
       })
       .catch(error => {
         console.error(error);
@@ -61,6 +84,7 @@ const searchCountry = (searchQuery) => {
       });
   });
 };
+
 
 const handleSearchInput = debounce((event) => {
   const searchQuery = event.target.value;
